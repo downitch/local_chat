@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="/styles.css" />
+    <title>AI CySec Helper</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="response-window">
+      </div>
+      <small>
+        Press Enter to send • Shift + Enter for newline
+      </small>
+      <div id="input-window">
+        <button id="agents-button">
+          AGENTS.md
+        </button>
+        <textarea id="input-window-textarea" placeholder="Type your big and very smart question here..."></textarea>
+        <div id="input-loading">
+          <img id="loading-icon" src="/loading.svg" />
+        </div>
+        <input type="file" id="agents-file-input" accept=".md" hidden />
+      </div>
+    </div>
+    <script src="/ai.js"></script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "evolved",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@slack/web-api": "^7.14.1",
+    "command-line-args": "^6.0.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "ollama": "^0.6.3",
+    "redis": "^5.12.1"
+  }
+}

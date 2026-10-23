@@ -1,0 +1,154 @@
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #6fa8dc;
+}
+
+a:hover {
+  cursor: pointer;
+  color: #6fa8dc;
+}
+
+a:visited {
+  color: #6fa8dc;
+}
+
+#wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 12px;
+}
+
+#agents-list {
+  width: min(200px, 20%);
+}
+
+#response-window {
+  width: min(1000px, 80%);
+  flex: 1;
+  overflow-y: auto;
+  /* border: 1px solid rgba(255,255,255,0.1); */
+  /* border-radius: 20px; */
+  padding: 24px;
+  padding-left: 0px;
+  padding-right: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#input-window {
+  width: min(1000px, 100%);
+  /* border: 1px solid rgba(255,255,255,0.1); */
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 16px;
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#input-window-textarea {
+  width: 100%;
+  min-height: 24px;
+  max-height: 200px;
+  border: none;
+  resize: none;
+  outline: none;
+  font-size: 16px;
+  font-family: inherit;
+  overflow-y: auto;
+  background: transparent;
+  color: white;
+}
+
+#input-window-textarea::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+#input-loading {
+  display: none;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#loading-icon {
+  width: 32px;
+  height: 32px;
+}
+
+small {
+  color: rgba(255,255,255,0.5);
+}
+
+.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+pre {
+  background: rgb(24,24,24);
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: monospace;
+}
+
+.message {
+  max-width: 92%;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 18px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  background: rgb(43,43,43);
+  color: white;
+}
+
+.message.user {
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.message.assistant {
+  max-width: 98%;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  background: transparent;
+}
+
+#agents-button {
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: 0.2s;
+}
+
+#agents-button:hover {
+  background: rgba(255,255,255,0.2);
+}
