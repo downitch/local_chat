@@ -1,5 +1,6 @@
 // get last session conversation if any exists
 const MEMORY_LANE = "ais_last_session_memory";
+const BACKUP_LANE = "ais_backup_session_memory";
 const AGENTS_STORAGE_KEY = "agentsmd";
 const JOB_IN_ACTION = "job_in_action";
 
@@ -35,6 +36,8 @@ const md = window.markdownit({
 });
 
 const agentsButton = document.getElementById("agents-button");
+const backupButton = document.getElementById("backup-button");
+const restoreButton = document.getElementById("restore-button");
 const agentsFileInput = document.getElementById("agents-file-input");
 const textarea = document.getElementById("input-window-textarea");
 const responseWindow = document.getElementById("response-window");
@@ -43,6 +46,12 @@ const inputLoading = document.getElementById("input-loading");
 let isWaiting = false;
 
 agentsButton.addEventListener("click", () => agentsFileInput.click());
+backupButton.addEventListener("click", () => {
+  writeToBackup().then(window.location.reload());
+});
+restoreButton.addEventListener("click", () => {
+  restoreFromBackup().then(window.location.reload());
+});
 
 agentsFileInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
@@ -202,6 +211,33 @@ function appendToMemory(input) {
   newMemory.push(input);
   console.log(newMemory);
   window.localStorage.setItem(MEMORY_LANE, JSON.stringify(newMemory));
+}
+
+function safeReadFromLocalStorage(addr) {
+  return JSON.parse(JSON.stringify(localStorage.getItem(addr)));
+}
+
+function writeJSONToLocalStorage(to, input) {
+  try {
+    localStorage.setItem(to, input);
+    return true;
+  } catch(e) {
+    return false;
+  }
+}
+
+function writeToBackup() {
+  return new Promise((resolve, reject) => {
+    if(writeJSONToLocalStorage(BACKUP_LANE, safeReadFromLocalStorage(MEMORY_LANE))) resolve();
+    else reject();
+  });
+}
+
+function restoreFromBackup() {
+  return new Promise((resolve, reject) => {
+    if(writeJSONToLocalStorage(MEMORY_LANE, safeReadFromLocalStorage(BACKUP_LANE))) resolve();
+    else reject();
+  });
 }
 
 function scrollToBottom() {

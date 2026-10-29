@@ -142,13 +142,50 @@ code {
   outline: none;
   background: rgba(255,255,255,0.1);
   color: white;
-  border-radius: 12px;
-  padding: 10px 14px;
+  border-radius: 5px;
+  padding: 6px 10px;
   cursor: pointer;
-  margin-right: 12px;
+  margin-right: 5px;
   transition: 0.2s;
 }
 
 #agents-button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#convo-handling {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+#backup-button {
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 5px;
+  padding: 3px 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  margin-bottom: 3px;
+}
+
+#backup-button:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+#restore-button {
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-radius: 5px;
+  padding: 3px 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#restore-button:hover {
   background: rgba(255,255,255,0.2);
 }
